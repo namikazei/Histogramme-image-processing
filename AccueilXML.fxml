@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #535353;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="traitementimagesprojet.TraitementImagesProjet">
+   <top>
+      <MenuBar id="menu" prefHeight="20.0" prefWidth="600.0" stylesheets="@accueil.css" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu id="fichier" mnemonicParsing="false" text="Fichier">
+            <items>
+              <MenuItem fx:id="menuOuvrir" mnemonicParsing="false" onAction="#ouvrirImage" text="Ouvrir" />
+                  <SeparatorMenuItem mnemonicParsing="false" styleClass="separateur" />
+                  <MenuItem fx:id="menuEnregistre" disable="true" mnemonicParsing="false" onAction="#enregistrerImage" text="Enregistrer Sous" />
+                  <SeparatorMenuItem mnemonicParsing="false" styleClass="separateur" />
+                  <MenuItem mnemonicParsing="false" onAction="#quitter" onMenuValidation="#quitter" text="Quitter" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edition">
+            <items>
+              <MenuItem fx:id="menuAnnuler" disable="true" mnemonicParsing="false" onAction="#annuler" text="Annuler " />
+                  <MenuItem fx:id="menuRepeter" disable="true" mnemonicParsing="false" onAction="#repeter" text="Répéter" />
+                  <SeparatorMenuItem mnemonicParsing="false" styleClass="separateur" />
+                  <MenuItem fx:id="menuZoomIn" disable="true" mnemonicParsing="false" onAction="#zoomIn" text="Zoom In" />
+                  <MenuItem fx:id="menuZoomOut" disable="true" mnemonicParsing="false" onAction="#zoomOut" text="Zoom out " />
+                  <MenuItem fx:id="menuTailInit" disable="true" mnemonicParsing="false" onAction="#originalSize" text="Taille Init " />
+            </items>
+          </Menu>
+          <Menu id="smenuHisto" mnemonicParsing="false" text="Histogrammes">
+            <items>
+                  <Menu mnemonicParsing="false" text="Histogramme">
+                     <items>
+                    <MenuItem fx:id="menuHistogramme" disable="true" mnemonicParsing="false" onAction="#histogramme" text="Histogramme Simple" />
+                        <SeparatorMenuItem mnemonicParsing="false" styleClass="separateur" />
+                        <MenuItem fx:id="menuHisCumule" disable="true" mnemonicParsing="false" onAction="#histogrammeCumule" text="Histogramme Cumulé" />
+                     </items>
+                  </Menu>
+                  <SeparatorMenuItem mnemonicParsing="false" styleClass="separateur" />
+                  <MenuItem fx:id="menuComparerHisto" disable="true" mnemonicParsing="false" onAction="#comparerHistogrammes" text="Comparer Histogrammes" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Traitements ">
+              <items>
+                <MenuItem fx:id="menuNiveauGris" disable="true" mnemonicParsing="false" onAction="#imageEnNiveauGris" text="Niveaux de gris " />
+                  <SeparatorMenuItem mnemonicParsing="false" styleClass="separateur" />
+                  <MenuItem fx:id="menuHistEtaler" disable="true" mnemonicParsing="false" onAction="#etaler" text="Etaler" />
+                  <MenuItem fx:id="menuHistEtalAmel" disable="true" mnemonicParsing="false" onAction="#etalerameliorer" text="Etaler (Amélioré)" />
+                  <SeparatorMenuItem mnemonicParsing="false" styleClass="separateur" />
+                  <MenuItem fx:id="menuHisEgaliser" disable="true" mnemonicParsing="false" onAction="#egaliser" text="Egaliser " />
+                  <SeparatorMenuItem mnemonicParsing="false" styleClass="separateur" />
+                  <MenuItem fx:id="menuComparerImage" disable="true" mnemonicParsing="false" onAction="#comparerImages" text="Comparer Images" />
+              </items>
+            </Menu>
+        </menus>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </MenuBar>
+   </top>
+   <center>
+      <TabPane fx:id="ContOnglet" nodeOrientation="LEFT_TO_RIGHT" onMouseReleased="#onTabChanged" prefHeight="200.0" prefWidth="200.0" stylesheets="@accueil.css" tabClosingPolicy="ALL_TABS" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab onClosed="#welcomeClosed" text="Accueil">
+            <content>
+              <AnchorPane stylesheets="@accueil.css">
+                     <children>
+                        <BorderPane layoutX="124.0" layoutY="108.0" prefHeight="340.0" prefWidth="600.0" style="-fx-background-color: #282828;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <center>
+                              <ImageView fx:id="welcomeImg" fitHeight="328.0" fitWidth="425.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                 <image>
+                                    <Image url="@images/logo.png" />
+                                 </image>
+                              </ImageView>
+                           </center>
+                        </BorderPane>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+         <padding>
+            <Insets top="-5.0" />
+         </padding>
+      </TabPane>
+   </center>
+</BorderPane>
